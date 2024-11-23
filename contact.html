@@ -40,6 +40,7 @@
             padding: 40px;
             border-radius: 10px;
             max-width: 600px;
+            width: 90%;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
             animation: fadeInZoom 1s ease-out;
         }
@@ -66,7 +67,6 @@
             text-decoration: underline;
         }
 
-
         /* Header Section */
         header {
             position: absolute;
@@ -78,11 +78,13 @@
             padding: 20px 50px;
             background-color: rgba(0, 0, 0, 0.5);
             z-index: 1;
+            flex-wrap: wrap;
         }
 
         .logo {
             display: flex;
             align-items: center;
+            flex: 1;
         }
 
         .logo img {
@@ -163,9 +165,9 @@
         
         .custom-font {
             font-family: 'Courier New', monospace;
-        }        
+        }
 
-        @keyframes reveal{
+        @keyframes reveal {
             from { translate: 0 20px;}
             to {translate: none; opacity: 1;}
         }
@@ -208,6 +210,85 @@
                 opacity: 0;
             }
         }
+
+        /* Responsive Styles for Mobile */
+        @media (max-width: 768px) {
+            /* Header Adjustments for Mobile */
+            header {
+                padding: 20px 15px;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            /* Logo adjustments */
+            .logo {
+                margin-bottom: 10px;
+            }
+
+            .logo h1 {
+                font-size: 20px;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+                align-items: flex-start;
+                margin-top: 10px;
+            }
+
+            nav ul li a {
+                padding: 10px;
+                font-size: 16px;
+            }
+
+            /* Main Content Adjustments for Mobile */
+            .main-content h1 {
+                font-size: 40px;
+            }
+
+            .main-content .order-btn {
+                padding: 12px 24px;
+                font-size: 18px;
+            }
+
+            .contact-container h1 {
+                font-size: 30px;
+            }
+
+            .contact-container p {
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            /* Logo Size for Smaller Screens */
+            .logo img {
+                width: 50px;
+                height: 50px;
+            }
+
+            .logo h1 {
+                font-size: 18px;
+            }
+
+            /* Main Content Adjustments for Smaller Screens */
+            .main-content h1 {
+                font-size: 32px;
+            }
+
+            .main-content .order-btn {
+                padding: 10px 20px;
+                font-size: 16px;
+            }
+
+            .contact-container h1 {
+                font-size: 26px;
+            }
+
+            .contact-container p {
+                font-size: 14px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -228,15 +309,13 @@
 
     <div class="contact-container">
         <h1>Contact Us</h1>
-        <p class=" paragraph">
+        <p class="paragraph">
             <span style="--delay:.0s;">Phone: <a href="tel:+639268168687">+63 926 816 8687</a></span>
             <span style="--delay: .15s;">Facebook: <a href="https://www.facebook.com/YashaMilkTea" target="_blank">Yasha Milk Tea</a></span>
             <span style="--delay: .2s;">Messenger: <a href="https://l.facebook.com/l.php?u=http%3A%2F%2Fmessenger.com%2Ft%2F105251157717628&h=AT2VgCq4QBqQp4bJgUNUmOurqiVgfSikFeJpzCXZBS25nvENO1DVF02yCsx-SunK70oeL9-aL5n29BnZu8tSA6j3IMkUDlrSKE322Dzp3wsC0uKntIG0nfgcgosLHPGU6zoC6g">Yasha Milk Tea</a></span>
-            
             <span style="--delay:.25s;">Location: <a href="https://www.google.com/maps/@8.4814154,124.6367499,20.5z?entry=ttu&g_ep=EgoyMDI0MTExNy4wIKXMDSoASAFQAw%3D%3D">#045, Oak St., Carmen, Cagayan de Oro City, Cagayan de Oro, Philippines, 9000</a></span>
             <span style="--delay:.3s;"> <span class="custom-font"><b>Your life is a cup that needs to be filled with goodness from above</b> - <i>MMD</i></span> </span>
         </p>
     </div>
-
 </body>
 </html>
