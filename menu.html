@@ -11,7 +11,7 @@
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         /* Body Styling */
         body {
             font-family: Arial, sans-serif;
@@ -43,11 +43,14 @@
             padding: 20px 50px;
             background-color: rgba(0, 0, 0, 0.5);
             z-index: 1;
+            flex-wrap: wrap;
         }
 
         .logo {
             display: flex;
             align-items: center;
+            flex: 1;
+            margin-bottom: 10px;
         }
 
         .logo img {
@@ -66,6 +69,8 @@
             display: flex;
             list-style: none;
             gap: 20px;
+            flex: 2;
+            justify-content: flex-end;
         }
 
         nav ul li a {
@@ -124,6 +129,7 @@
         .custom-font {
             font-family: 'Bookman Old Style', monospace;
         }
+
         /* Animations */
         @keyframes fadeIn {
             0% { opacity: 0; }
@@ -162,6 +168,68 @@
                 opacity: 0;
             }
         }
+
+        /* Responsive Styles for Mobile */
+        @media (max-width: 768px) {
+            /* Header Adjustments for Mobile */
+            header {
+                padding: 20px 15px;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .logo {
+                margin-bottom: 10px;
+            }
+
+            .logo h1 {
+                font-size: 20px;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+                align-items: flex-start;
+                margin-top: 10px;
+            }
+
+            nav ul li a {
+                padding: 10px;
+                font-size: 16px;
+            }
+
+            /* Main Content Adjustments for Mobile */
+            .main-content h1 {
+                font-size: 40px;
+            }
+
+            .main-content .order-btn {
+                padding: 12px 24px;
+                font-size: 18px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            /* Logo Size for Smaller Screens */
+            .logo img {
+                width: 50px;
+                height: 50px;
+            }
+
+            .logo h1 {
+                font-size: 18px;
+            }
+
+            /* Main Content Adjustments for Smaller Screens */
+            .main-content h1 {
+                font-size: 32px;
+            }
+
+            .main-content .order-btn {
+                padding: 10px 20px;
+                font-size: 16px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -180,6 +248,9 @@
         </nav>
     </header>
 
-    
+    <div class="main-content">
+        <h1>Welcome to Yasha Milktea House!</h1>
+        <button class="order-btn">Order Now</button>
+    </div>
 </body>
 </html>
