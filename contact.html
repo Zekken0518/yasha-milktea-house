@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yasha Milktea House</title>
+    <style>
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styling */
+        body {
+            font-family: Arial, sans-serif;
+            background: url('pic2.png') no-repeat center center fixed; /* Replace with your image path */
+            background-size: cover;
+            animation: backgroundPan 10s ease infinite;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            overflow: hidden;
+        }
+
+        @keyframes backgroundPan {
+            0% { background-position: center center; }
+            50% { background-position: top left; }
+            100% { background-position: center center; }
+        }
+
+        /* Contact Container */
+        .contact-container {
+            position: absolute;
+            bottom: 60px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 40px;
+            border-radius: 10px;
+            max-width: 600px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+            animation: fadeInZoom 1s ease-out;
+        }
+
+        .contact-container h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #5aadf1;
+        }
+
+        .contact-container p {
+            font-size: 18px;
+            margin: 10px 0;
+            line-height: 1.8;
+        }
+
+        .contact-container a {
+            color: #5aadf1;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .contact-container a:hover {
+            text-decoration: underline;
+        }
+
+
+        /* Header Section */
+        header {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 60px;
+            height: 60px;
+            margin-right: 10px;
+            border-radius: 20px;
+        }
+
+        .logo h1 {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        nav ul li a:hover {
+            background-color: white;
+            color: black;
+        }
+
+        /* Main Content */
+        .main-content {
+            text-align: center;
+            animation: fadeInZoom 2s ease-out;
+            position: relative;
+        }
+
+        .main-content h1 {
+            font-size: 60px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            animation: slideIn 1s ease-in-out;
+        }
+
+        /* Button Styling */
+        .main-content .order-btn {
+            margin-top: 50px;
+            padding: 15px 30px;
+            font-size: 20px;
+            font-weight: bold;
+            color: white;
+            background-color: #ff758c;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.3s, background-color 0.3s;
+            animation: fadeIn 1s ease-out 1s forwards;
+            opacity: 0;
+        }
+
+        .main-content .order-btn:hover {
+            transform: scale(1.1);
+            background-color: #ff4d6a;
+        }
+
+        .main-content .order-btn:active {
+            animation: buttonClick 0.5s ease-out forwards;
+        }
+
+        .paragraph span{
+            display: block; opacity:0;
+            animation: reveal .5s forwards var(--delay);
+        }
+        
+        .custom-font {
+            font-family: 'Courier New', monospace;
+        }        
+
+        @keyframes reveal{
+            from { translate: 0 20px;}
+            to {translate: none; opacity: 1;}
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes fadeInZoom {
+            0% {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideIn {
+            0% {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes buttonClick {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(10);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="logo.jpg" alt="Al-Pater Logo"> <!-- Replace with your logo image -->
+            <h1><span class="custom-font">Yasha Milktea House</span></h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="#reservations">Reservations</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="contact-container">
+        <h1>Contact Us</h1>
+        <p class=" paragraph">
+            <span style="--delay:.0s;">Phone: <a href="tel:+639268168687">+63 926 816 8687</a></span>
+            <span style="--delay: .15s;">Facebook: <a href="https://www.facebook.com/YashaMilkTea" target="_blank">Yasha Milk Tea</a></span>
+            <span style="--delay: .2s;">Messenger: <a href="https://l.facebook.com/l.php?u=http%3A%2F%2Fmessenger.com%2Ft%2F105251157717628&h=AT2VgCq4QBqQp4bJgUNUmOurqiVgfSikFeJpzCXZBS25nvENO1DVF02yCsx-SunK70oeL9-aL5n29BnZu8tSA6j3IMkUDlrSKE322Dzp3wsC0uKntIG0nfgcgosLHPGU6zoC6g">Yasha Milk Tea</a></span>
+            
+            <span style="--delay:.25s;">Location: <a href="https://www.google.com/maps/@8.4814154,124.6367499,20.5z?entry=ttu&g_ep=EgoyMDI0MTExNy4wIKXMDSoASAFQAw%3D%3D">#045, Oak St., Carmen, Cagayan de Oro City, Cagayan de Oro, Philippines, 9000</a></span>
+            <span style="--delay:.3s;"> <span class="custom-font"><b>Your life is a cup that needs to be filled with goodness from above</b> - <i>MMD</i></span> </span>
+        </p>
+    </div>
+
+</body>
+</html>
