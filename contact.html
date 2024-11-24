@@ -14,22 +14,179 @@
 
         /* Body Styling */
         body {
+            background: url('pic2.png') no-repeat center center fixed;
             font-family: Arial, sans-serif;
-            background: url('pic2.png') no-repeat center center fixed; /* Replace with your image path */
             background-size: cover;
-            animation: backgroundPan 10s ease infinite;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            animation: backgroundPan 8s ease infinite;
+            height: 200vh;
             color: white;
-            overflow: hidden;
+            overflow-y: auto;
         }
 
+        body::-webkit-scrollbar {
+            display: none; /* Hides the scrollbar in Webkit browsers (Chrome, Safari) */
+        }
+
+        /* Background Animation */
         @keyframes backgroundPan {
             0% { background-position: center center; }
             50% { background-position: top left; }
             100% { background-position: center center; }
+        }
+
+        /* Header Section */
+        header {
+            position: fixed; /* Make header fixed */
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 2;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Optional: Add shadow to make the header stand out */
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 60px;
+            height: 60px;
+            margin-right: 10px;
+            border-radius: 20px;
+        }
+
+        .logo h1 {
+            font-size: 24px;
+            font-weight: bold;
+            text-shadow: 0 0 5px #00ffcc;
+        }
+
+        /* Hamburger Button */
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            z-index: 3;
+        }
+
+        .hamburger span {
+            width: 30px;
+            height: 3px;
+            background: white;
+            transition: transform 0.1s, opacity 0.3s, border-radius 0.3s;
+        }
+
+        /* Hamburger Animations (turning to X or Circle) */
+        #menu-toggle:checked ~ header .hamburger span:nth-child(1) {
+            transform: rotate(45deg) translateY(8px);
+            border-radius: 50%;
+        }
+
+        #menu-toggle:checked ~ header .hamburger span:nth-child(2) {
+            opacity: 0;
+        }
+
+        #menu-toggle:checked ~ header .hamburger span:nth-child(3) {
+            transform: rotate(-45deg) translateY(-8px);
+            border-radius: 50%;
+        }
+
+        /* Navigation Drawer */
+        .menu {
+            position: fixed;
+            top: 0; /* Keeps the menu fixed at the top */
+            right: -100%;
+            height: 100vh;
+            width: 250px;
+            background: rgba(0, 0, 0, 0.9);
+            box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            transition: right 1s ease; /* Slow pop-up effect */
+            z-index: 1; /* Ensure the menu is on top of other content */
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .menu a:hover {
+            color: #5aadf1;
+        }
+
+        /* Show Menu */
+        #menu-toggle:checked ~ .menu {
+            right: 0;
+        }
+
+        /* Hide Checkbox */
+        #menu-toggle {
+            display: none;
+        }
+
+        /* Main Content */
+        .main-content {
+            text-align: center;
+            margin-top: 150px; /* Added margin to make space for the fixed header */
+            animation: fadeInZoom 2s ease-out;
+        }
+
+        .main-content h1 {
+            font-size: 60px;
+            font-weight: bold;
+            animation: slideIn 1s ease-in-out;
+        }
+
+        .main-content .order-btn {
+            margin-top: 30px;
+            padding: 15px 30px;
+            font-size: 20px;
+            font-weight: bold;
+            color: white;
+            background-color: #5aadf1;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.3s, background-color 0.3s;
+            opacity: 1;
+        }
+
+        .main-content .order-btn:hover {
+            transform: scale(1.1);
+            background-color: #5aadf1;
+        }
+
+        .text {
+            position: absolute;
+            bottom: 80px;
+            left: 20px;
+            max-width: 600px;
+            animation: fadeInZoom 1s ease-out;
+            color: #ffffff; 
+            font-family: 'fantasy', sans-serif;
+            font-weight: bold;
+        }
+
+        .text p {
+            font-size: 20px;
+            font-family: 'fantasy';
+            font-weight: bold;
+            margin: 10px 0;
+            line-height: 1.8;
         }
 
         /* Contact Container */
@@ -67,117 +224,7 @@
             text-decoration: underline;
         }
 
-        /* Header Section */
-        header {
-            position: absolute;
-            top: 0;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 50px;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 1;
-            flex-wrap: wrap;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            flex: 1;
-        }
-
-        .logo img {
-            width: 60px;
-            height: 60px;
-            margin-right: 10px;
-            border-radius: 20px;
-        }
-
-        .logo h1 {
-            font-size: 24px;
-            font-weight: bold;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 20px;
-        }
-
-        nav ul li a {
-            text-decoration: none;
-            color: white;
-            font-weight: bold;
-            padding: 10px 20px;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
-
-        nav ul li a:hover {
-            background-color: white;
-            color: black;
-        }
-
-        /* Main Content */
-        .main-content {
-            text-align: center;
-            animation: fadeInZoom 2s ease-out;
-            position: relative;
-        }
-
-        .main-content h1 {
-            font-size: 60px;
-            font-weight: bold;
-            margin-bottom: 20px;
-            animation: slideIn 1s ease-in-out;
-        }
-
-        /* Button Styling */
-        .main-content .order-btn {
-            margin-top: 50px;
-            padding: 15px 30px;
-            font-size: 20px;
-            font-weight: bold;
-            color: white;
-            background-color: #ff758c;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: transform 0.3s, background-color 0.3s;
-            animation: fadeIn 1s ease-out 1s forwards;
-            opacity: 0;
-        }
-
-        .main-content .order-btn:hover {
-            transform: scale(1.1);
-            background-color: #ff4d6a;
-        }
-
-        .main-content .order-btn:active {
-            animation: buttonClick 0.5s ease-out forwards;
-        }
-
-        .paragraph span{
-            display: block; opacity:0;
-            animation: reveal .5s forwards var(--delay);
-        }
-        
-        .custom-font {
-            font-family: 'Courier New', monospace;
-        }
-
-        @keyframes reveal {
-            from { translate: 0 20px;}
-            to {translate: none; opacity: 1;}
-        }
-
         /* Animations */
-        @keyframes fadeIn {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
-        }
-
         @keyframes fadeInZoom {
             0% {
                 transform: scale(0.8);
@@ -199,113 +246,28 @@
                 opacity: 1;
             }
         }
-
-        @keyframes buttonClick {
-            0% {
-                transform: scale(1);
-                opacity: 1;
-            }
-            100% {
-                transform: scale(10);
-                opacity: 0;
-            }
-        }
-
-        /* Responsive Styles for Mobile */
-        @media (max-width: 768px) {
-            /* Header Adjustments for Mobile */
-            header {
-                padding: 20px 15px;
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            /* Logo adjustments */
-            .logo {
-                margin-bottom: 10px;
-            }
-
-            .logo h1 {
-                font-size: 20px;
-            }
-
-            nav ul {
-                flex-direction: column;
-                gap: 10px;
-                align-items: flex-start;
-                margin-top: 10px;
-            }
-
-            nav ul li a {
-                padding: 10px;
-                font-size: 16px;
-            }
-
-            /* Main Content Adjustments for Mobile */
-            .main-content h1 {
-                font-size: 40px;
-            }
-
-            .main-content .order-btn {
-                padding: 12px 24px;
-                font-size: 18px;
-            }
-
-            .contact-container h1 {
-                font-size: 30px;
-            }
-
-            .contact-container p {
-                font-size: 16px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            /* Logo Size for Smaller Screens */
-            .logo img {
-                width: 50px;
-                height: 50px;
-            }
-
-            .logo h1 {
-                font-size: 18px;
-            }
-
-            /* Main Content Adjustments for Smaller Screens */
-            .main-content h1 {
-                font-size: 32px;
-            }
-
-            .main-content .order-btn {
-                padding: 10px 20px;
-                font-size: 16px;
-            }
-
-            .contact-container h1 {
-                font-size: 26px;
-            }
-
-            .contact-container p {
-                font-size: 14px;
-            }
-        }
     </style>
 </head>
 <body>
     <header>
         <div class="logo">
-            <img src="logo.jpg" alt="Al-Pater Logo"> <!-- Replace with your logo image -->
-            <h1><span class="custom-font">Yasha Milktea House</span></h1>
+            <img src="logo.jpg" alt="Logo"> <!-- Replace with your logo -->
+            <h1>Yasha Milktea House</h1>
         </div>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="menu.html">Menu</a></li>
-                <li><a href="#reservations">Reservations</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
+        <label for="menu-toggle" class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
     </header>
+
+    <input type="checkbox" id="menu-toggle">
+    <div class="menu">
+        <a href="index.html">Home</a>
+        <a href="menu.html">Menu</a>
+        <a href="#reservations">Reservations</a>
+        <a href="contact.html">Contact</a>
+    </div>
 
     <div class="contact-container">
         <h1>Contact Us</h1>
